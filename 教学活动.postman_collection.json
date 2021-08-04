@@ -1,0 +1,855 @@
+{
+	"info": {
+		"_postman_id": "860ff811-f859-4dde-89d5-c3ed53eab618",
+		"name": "教学活动",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "导师库",
+			"item": [
+				{
+					"name": "获取栏目",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTeamAjax/getSchoolColumnList?token={{token}}",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTeamAjax",
+								"getSchoolColumnList"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取擅长领域",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTutorAjax/getRealmList?token={{token}}",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTutorAjax",
+								"getRealmList"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取职称和学历",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTutorAjax/getCreateOptions?token={{token}}",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTutorAjax",
+								"getCreateOptions"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取地区选择",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = responseBody;\r",
+									"var data1 = JSON.parse(data);\r",
+									"console.log(typeof(data))\r",
+									"console.log(data1)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTutorAjax/getAreaList?parent_id=0&token={{token}}",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTutorAjax",
+								"getAreaList"
+							],
+							"query": [
+								{
+									"key": "parent_id",
+									"value": "0"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "创建导师",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTutorAjax/create?token={{token}}&name=汪建&realm_link=[{“target_id”:372},{“target_id”:253}]&work_unit=华大基因&introduction=汪建，现任华大集团董事长。1991年主导成立西雅图华人生物医学协会，策划将人类基因组计划引回国内。1994年回国创建吉比爱生物技术(北京)有限公司，积极推动人类基因组计划的实施。1999年为承接人类基因组计划的中国部分，主导创建华大基因。2003至2007年任中国科学院基因组研究所副所长。2007年南下深圳，建立深圳华大基因研究院以及之后的科研、教育与产业体系。 1979年毕业于湖南医学院（现中南大学湘雅医学院）医疗系，1986年获北京中医学院（现北京中医药大学）中西医结合专业硕士学位，1988至1994年期间，先后在美国德州大学、爱荷华大学、华盛顿大学从事博士后研究。&photo_link=[{\"target_id\":726439}]&gender=1&birthday=1991-06-18&title_link=[{“target_id”:4},{“target_id”:5}]&province_id=110000&city_id=110000&district_id=110000&education=&achievement=[{\"year\":\"1994\",\"content\":\"湖北省公安县纪委监察局科员\"},{\"year\":\"1997\",\"content\":\"北京大学社会发展研究所科学社会主义专业（硕士）研究生\"}]",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTutorAjax",
+								"create"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "汪建"
+								},
+								{
+									"key": "realm_link",
+									"value": "[{“target_id”:372},{“target_id”:253}]"
+								},
+								{
+									"key": "work_unit",
+									"value": "华大基因"
+								},
+								{
+									"key": "introduction",
+									"value": "汪建，现任华大集团董事长。1991年主导成立西雅图华人生物医学协会，策划将人类基因组计划引回国内。1994年回国创建吉比爱生物技术(北京)有限公司，积极推动人类基因组计划的实施。1999年为承接人类基因组计划的中国部分，主导创建华大基因。2003至2007年任中国科学院基因组研究所副所长。2007年南下深圳，建立深圳华大基因研究院以及之后的科研、教育与产业体系。 1979年毕业于湖南医学院（现中南大学湘雅医学院）医疗系，1986年获北京中医学院（现北京中医药大学）中西医结合专业硕士学位，1988至1994年期间，先后在美国德州大学、爱荷华大学、华盛顿大学从事博士后研究。"
+								},
+								{
+									"key": "photo_link",
+									"value": "[{\"target_id\":726439}]"
+								},
+								{
+									"key": "gender",
+									"value": "1"
+								},
+								{
+									"key": "birthday",
+									"value": "1991-06-18"
+								},
+								{
+									"key": "title_link",
+									"value": "[{“target_id”:4},{“target_id”:5}]"
+								},
+								{
+									"key": "province_id",
+									"value": "110000"
+								},
+								{
+									"key": "city_id",
+									"value": "110000"
+								},
+								{
+									"key": "district_id",
+									"value": "110000"
+								},
+								{
+									"key": "education",
+									"value": ""
+								},
+								{
+									"key": "achievement",
+									"value": "[{\"year\":\"1994\",\"content\":\"湖北省公安县纪委监察局科员\"},{\"year\":\"1997\",\"content\":\"北京大学社会发展研究所科学社会主义专业（硕士）研究生\"}]"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "编辑导师",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTutorAjax/update?token={{token}}&name=郑泉水&realm_link=[{“target_id”:372},{“target_id”:253}]&work_unit=岳麓区干细胞研究所&introduction=致力于干细胞研究。。。。。&photo_link=照片&gender=1&birthday=1999-10-1&title_link=[{“target_id”:4},{“target_id”:5}]&province_id=&city_id=&district_id=&education=3&achievement=[{“year”:1994,\"content\":\"湖北省公安县纪委监察局科员\"},{“year”:1997,\"content\":\"北京大学社会发展研究所科学社会主义专业（硕士）研究生\"}]&id=5",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTutorAjax",
+								"update"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "郑泉水"
+								},
+								{
+									"key": "realm_link",
+									"value": "[{“target_id”:372},{“target_id”:253}]"
+								},
+								{
+									"key": "work_unit",
+									"value": "岳麓区干细胞研究所"
+								},
+								{
+									"key": "introduction",
+									"value": "致力于干细胞研究。。。。。"
+								},
+								{
+									"key": "photo_link",
+									"value": "照片"
+								},
+								{
+									"key": "gender",
+									"value": "1"
+								},
+								{
+									"key": "birthday",
+									"value": "1999-10-1"
+								},
+								{
+									"key": "title_link",
+									"value": "[{“target_id”:4},{“target_id”:5}]",
+									"description": "4院士5教授6副教授7助教8讲师"
+								},
+								{
+									"key": "province_id",
+									"value": "",
+									"description": "省"
+								},
+								{
+									"key": "city_id",
+									"value": "",
+									"description": "市"
+								},
+								{
+									"key": "district_id",
+									"value": "",
+									"description": "区"
+								},
+								{
+									"key": "education",
+									"value": "3",
+									"description": "0本科2研究生3博士4博士后"
+								},
+								{
+									"key": "achievement",
+									"value": "[{“year”:1994,\"content\":\"湖北省公安县纪委监察局科员\"},{“year”:1997,\"content\":\"北京大学社会发展研究所科学社会主义专业（硕士）研究生\"}]",
+									"description": "成就"
+								},
+								{
+									"key": "id",
+									"value": "5",
+									"description": "导师id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除导师",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTutorAjax/destroy?token={{token}}&id=3",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTutorAjax",
+								"destroy"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"description": "导师id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "导师详情",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTutorAjax/detail?token={{token}}&id=5",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTutorAjax",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "id",
+									"value": "5",
+									"description": "导师id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "导师列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTutorAjax/index?token={{token}}",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTutorAjax",
+								"index"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "团队管理",
+			"item": [
+				{
+					"name": "创建团队",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTeamAjax/create?token={{token}}&name=郑泉水团队&introduction=2004年国家发改委批准成立人类干细胞国家工程研究中心，中心依托中南大学建设，由湖南海利惠霖生命科技有限公司承担中心的整体运营。卢光琇教授任中心主任、公司董事长。经过4年的建设，中心已经由最初的54人发展到98人，其中9人具有高级技术职称，69人具有硕士研究生以上学历，7人具有海外留学经历；中心拥有流式细胞仪、激光共聚焦显微镜、荧光倒置显微镜等一系列高端仪器设备。\n       中心以干细胞研究开发为核心，立足于开发人类胚胎干细胞相关技术产品，兼顾其他成体干细胞和与相关的组织工程材料的技术开发和产业化，建立相关技术平台，目前已取得了一系列成果，部分技术已申请专利8项。主要研究成果如下：1、利用不同来源的人类胚胎建立了国际上最大的hESC库（共有217株hESC系），包括正常ESC系、多种遗传疾病的ESC系、具有肿瘤干细胞特性的ESC系及世界上首个全基因组纯合的孤雌ESC系,其中150个系已经完成了全面的特性鉴定。建立了ESC向胰岛、神经、造血诱导分化的技术平台；对多个胚胎干细胞特异性表达新基因进行了研究；参与中欧合作，建立了胚胎干细胞库的相关理论工作。2、乳腺癌免疫治疗的关键技术取得突破，已完成临床前动物实验。3、建立了成体干细胞库，包括脐血干细胞、间充质干细胞、羊膜干细胞库，对成体干细胞在治疗糖尿病、缺血性疾病中的作用及机理进行了深入的研究。&logo_md=http://lion.yuschool.cn/md/17b74be92b9ec4d2fe5dd82755445596&realm_link&column_link=528",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTeamAjax",
+								"create"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "郑泉水团队",
+									"description": "团队名称"
+								},
+								{
+									"key": "introduction",
+									"value": "2004年国家发改委批准成立人类干细胞国家工程研究中心，中心依托中南大学建设，由湖南海利惠霖生命科技有限公司承担中心的整体运营。卢光琇教授任中心主任、公司董事长。经过4年的建设，中心已经由最初的54人发展到98人，其中9人具有高级技术职称，69人具有硕士研究生以上学历，7人具有海外留学经历；中心拥有流式细胞仪、激光共聚焦显微镜、荧光倒置显微镜等一系列高端仪器设备。\n       中心以干细胞研究开发为核心，立足于开发人类胚胎干细胞相关技术产品，兼顾其他成体干细胞和与相关的组织工程材料的技术开发和产业化，建立相关技术平台，目前已取得了一系列成果，部分技术已申请专利8项。主要研究成果如下：1、利用不同来源的人类胚胎建立了国际上最大的hESC库（共有217株hESC系），包括正常ESC系、多种遗传疾病的ESC系、具有肿瘤干细胞特性的ESC系及世界上首个全基因组纯合的孤雌ESC系,其中150个系已经完成了全面的特性鉴定。建立了ESC向胰岛、神经、造血诱导分化的技术平台；对多个胚胎干细胞特异性表达新基因进行了研究；参与中欧合作，建立了胚胎干细胞库的相关理论工作。2、乳腺癌免疫治疗的关键技术取得突破，已完成临床前动物实验。3、建立了成体干细胞库，包括脐血干细胞、间充质干细胞、羊膜干细胞库，对成体干细胞在治疗糖尿病、缺血性疾病中的作用及机理进行了深入的研究。",
+									"description": "简介"
+								},
+								{
+									"key": "logo_md",
+									"value": "http://lion.yuschool.cn/md/17b74be92b9ec4d2fe5dd82755445596"
+								},
+								{
+									"key": "realm_link",
+									"value": null,
+									"description": "领域"
+								},
+								{
+									"key": "column_link",
+									"value": "528",
+									"description": "栏目"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "编辑团队",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTeamAjax/update?token={{token}}&name=郑泉水团队&introduction=2004年国家发改委批准成立人类干细胞国家工程研究中心，中心依托中南大学建设，由湖南海利惠霖生命科技有限公司承担中心的整体运营。卢光琇教授任中心主任、公司董事长。经过4年的建设，中心已经由最初的54人发展到98人，其中9人具有高级技术职称，69人具有硕士研究生以上学历，7人具有海外留学经历；中心拥有流式细胞仪、激光共聚焦显微镜、荧光倒置显微镜等一系列高端仪器设备。\n       中心以干细胞研究开发为核心，立足于开发人类胚胎干细胞相关技术产品，兼顾其他成体干细胞和与相关的组织工程材料的技术开发和产业化，建立相关技术平台，目前已取得了一系列成果，部分技术已申请专利8项。主要研究成果如下：1、利用不同来源的人类胚胎建立了国际上最大的hESC库（共有217株hESC系），包括正常ESC系、多种遗传疾病的ESC系、具有肿瘤干细胞特性的ESC系及世界上首个全基因组纯合的孤雌ESC系,其中150个系已经完成了全面的特性鉴定。建立了ESC向胰岛、神经、造血诱导分化的技术平台；对多个胚胎干细胞特异性表达新基因进行了研究；参与中欧合作，建立了胚胎干细胞库的相关理论工作。2、乳腺癌免疫治疗的关键技术取得突破，已完成临床前动物实验。3、建立了成体干细胞库，包括脐血干细胞、间充质干细胞、羊膜干细胞库，对成体干细胞在治疗糖尿病、缺血性疾病中的作用及机理进行了深入的研究。&logo_md=17b74be92b9ec4d2fe5dd82755445596&realm_link=&column_link=528&id=11",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTeamAjax",
+								"update"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "郑泉水团队"
+								},
+								{
+									"key": "introduction",
+									"value": "2004年国家发改委批准成立人类干细胞国家工程研究中心，中心依托中南大学建设，由湖南海利惠霖生命科技有限公司承担中心的整体运营。卢光琇教授任中心主任、公司董事长。经过4年的建设，中心已经由最初的54人发展到98人，其中9人具有高级技术职称，69人具有硕士研究生以上学历，7人具有海外留学经历；中心拥有流式细胞仪、激光共聚焦显微镜、荧光倒置显微镜等一系列高端仪器设备。\n       中心以干细胞研究开发为核心，立足于开发人类胚胎干细胞相关技术产品，兼顾其他成体干细胞和与相关的组织工程材料的技术开发和产业化，建立相关技术平台，目前已取得了一系列成果，部分技术已申请专利8项。主要研究成果如下：1、利用不同来源的人类胚胎建立了国际上最大的hESC库（共有217株hESC系），包括正常ESC系、多种遗传疾病的ESC系、具有肿瘤干细胞特性的ESC系及世界上首个全基因组纯合的孤雌ESC系,其中150个系已经完成了全面的特性鉴定。建立了ESC向胰岛、神经、造血诱导分化的技术平台；对多个胚胎干细胞特异性表达新基因进行了研究；参与中欧合作，建立了胚胎干细胞库的相关理论工作。2、乳腺癌免疫治疗的关键技术取得突破，已完成临床前动物实验。3、建立了成体干细胞库，包括脐血干细胞、间充质干细胞、羊膜干细胞库，对成体干细胞在治疗糖尿病、缺血性疾病中的作用及机理进行了深入的研究。"
+								},
+								{
+									"key": "logo_md",
+									"value": "17b74be92b9ec4d2fe5dd82755445596"
+								},
+								{
+									"key": "realm_link",
+									"value": ""
+								},
+								{
+									"key": "column_link",
+									"value": "528"
+								},
+								{
+									"key": "id",
+									"value": "11",
+									"description": "团队id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除团队",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTeamAjax/destroy?token={{token}}&=10",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTeamAjax",
+								"destroy"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": null,
+									"value": "10",
+									"description": "团队id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加导师到团队",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTeamAuthAjax/create?team_id=10&tutor_link",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTeamAuthAjax",
+								"create"
+							],
+							"query": [
+								{
+									"key": "team_id",
+									"value": "10",
+									"description": "团队id"
+								},
+								{
+									"key": "tutor_link",
+									"value": null,
+									"description": "导师数据"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "团队导师列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTeamAuthAjax/index?team_id=10&token={{token}}",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTeamAuthAjax",
+								"index"
+							],
+							"query": [
+								{
+									"key": "team_id",
+									"value": "10",
+									"description": "团队id"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "设置导师身份",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTeamAuthAjax/update?id&type",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTeamAuthAjax",
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": null,
+									"description": "列表id"
+								},
+								{
+									"key": "type",
+									"value": null,
+									"description": "0导师1领衔导师"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "移除导师",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTeamAuthAjax/destroy?id&token={{token}}",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTeamAuthAjax",
+								"destroy"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": null,
+									"description": "列表id"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取团队",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTeamAjax/index?token={{token}}",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTeamAjax",
+								"index"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "column_id",
+									"value": "528",
+									"disabled": true
+								},
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "团队详情",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}teach_activity/TeachTeamAjax/detail?token={{token}}&id=8",
+							"host": [
+								"{{url}}teach_activity"
+							],
+							"path": [
+								"TeachTeamAjax",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "id",
+									"value": "8",
+									"description": "团队id"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PARK",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://barontang.yuschool.cn/league/LeagueAjax/getIndexData?token=YTU5ZTc3MWE5NDNjZWE1ODIxOGJmZjg5Yjc0MWNhNTk",
+							"protocol": "http",
+							"host": [
+								"barontang",
+								"yuschool",
+								"cn"
+							],
+							"path": [
+								"league",
+								"LeagueAjax",
+								"getIndexData"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "YTU5ZTc3MWE5NDNjZWE1ODIxOGJmZjg5Yjc0MWNhNTk"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取PARK详情",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://barontang.yuschool.cn/league/LeagueParkAjax/detail?token=YTU5ZTc3MWE5NDNjZWE1ODIxOGJmZjg5Yjc0MWNhNTk&id=9",
+							"protocol": "http",
+							"host": [
+								"barontang",
+								"yuschool",
+								"cn"
+							],
+							"path": [
+								"league",
+								"LeagueParkAjax",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "YTU5ZTc3MWE5NDNjZWE1ODIxOGJmZjg5Yjc0MWNhNTk"
+								},
+								{
+									"key": "id",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "标签列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://barontang.yuschool.cn/base/TagAjax/getTagList?token={{token}}",
+							"protocol": "http",
+							"host": [
+								"barontang",
+								"yuschool",
+								"cn"
+							],
+							"path": [
+								"base",
+								"TagAjax",
+								"getTagList"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "登录",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.text();\r",
+							"var da = data.match(/\"token\":\"(.*?)\",/)[1];\r",
+							"pm.environment.set(\"token\",da);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}index.php?jsonVar=login&app=interface&mod=User&act=smartLoginByNode&node_id=113&username=chs001&password=f6d72f37adf6b9c0&ey=1&_=1623142093865 HTTP/1.1",
+					"host": [
+						"{{url}}index",
+						"php"
+					],
+					"query": [
+						{
+							"key": "jsonVar",
+							"value": "login"
+						},
+						{
+							"key": "app",
+							"value": "interface"
+						},
+						{
+							"key": "mod",
+							"value": "User"
+						},
+						{
+							"key": "act",
+							"value": "smartLoginByNode"
+						},
+						{
+							"key": "node_id",
+							"value": "113"
+						},
+						{
+							"key": "username",
+							"value": "chs001"
+						},
+						{
+							"key": "password",
+							"value": "f6d72f37adf6b9c0"
+						},
+						{
+							"key": "ey",
+							"value": "1"
+						},
+						{
+							"key": "_",
+							"value": "1623142093865 HTTP/1.1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
