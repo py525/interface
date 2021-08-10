@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "862d6cbe-fa93-4207-95dc-48140666b551",
+		"name": "storm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "storm-001",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Body matches',function(){\r",
+							"    pm.expect(pm.response.text()).to.include('{\"code\": 200, \"id\": \"1\", \"name\": ');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/getuser?userid=1&Content-Type=application/json;charset=UTF-8",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getuser"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "storm-002",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Boddy is correct',function(){\r",
+							"    pm.response.to.have.body('{\"code\": 500, \"msg\": \"\\\\u6ca1\\\\u6709\\\\u8fd9\\\\u4e2a\\\\u7528\\\\u6237\"}');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/getuser?userid=2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getuser"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "storm-003",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"test Response code\",function(){\r",
+							"    pm.expect(pm.response.json.msg).to.eql(\"没有这个用户\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/getuser",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getuser"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
